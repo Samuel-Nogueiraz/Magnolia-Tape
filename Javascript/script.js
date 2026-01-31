@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hero = document.getElementById('hero');
     const sections = document.querySelectorAll('.section');
     let ticking = false;
-
+    // Função para gerenciar a visibilidade do header com base no scroll
     function handleHeaderScroll() {
         const heroHeight = hero.offsetHeight;
         const scrollY = window.scrollY;
@@ -19,9 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             heroLogo.classList.remove('hidden');
         }
     }
-
-    // Otimização: usar IntersectionObserver ao invés de getBoundingClientRect em loop
-    // Usa classes CSS ao invés de manipular style inline
+    // Observer para as sections com efeito parallax
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const section = entry.target;
